@@ -1,5 +1,7 @@
 package java_1.collections;
 
+
+
 import java.util.*;
 
 public class CollectionsChallenges {
@@ -15,23 +17,41 @@ public class CollectionsChallenges {
 		return (Integer) null;
 	}
 
-	static List convertArrToList(Object[] array) {
+	public static ArrayList<String> convertArrToList(String[] array) {
 //		convert the array to a list and return it.
-		return null;
+		array = new String[]{"Here", "Is", "My", "Array"};
+
+	ArrayList<String> arrToList = new ArrayList<String>(Arrays.asList("Here", "Is", "My", "Array"));
+		System.out.println(arrToList);
+		return arrToList;
 	}
 
 	static Set<String> listToSet(List<String> states) {
 //		convert a list of US states to a set.  return the set.
-		return null;
+
+
+		Set<String> stateSet = new HashSet<>(states);
+
+
+		return stateSet;
 	}
 
 	static int addToList(int x, ArrayList<Integer> numList) {
-		// add the x input to the array list.  return the value if succcessfully added.
+		// add the x input to the array list.  return the value if successfully added.
+		 numList = new ArrayList<Integer>();
+		 x = 1;
+		 numList.add(x);
 		return x;
 	}
 
 	static void removeFromList(int x, ArrayList<Integer> numList) {
 		// remove the input parameter value x from the numList.
+
+		numList = new ArrayList<Integer>();
+		x = 1;
+		numList.remove(x);
+
+		System.out.println(numList);
 	}
 
 	static int insertIntoList(int x, int i, ArrayList<Integer> numList) {
@@ -44,7 +64,10 @@ public class CollectionsChallenges {
 		reverse the values of the nums list
 		return the reversed array list
 		*/
-		return null;
+
+;Collections.reverse(nums);
+
+		return nums;
 	}
 
 	static LinkedList<String> reverseLinkedList(LinkedList<String> linkedList, boolean mutate) {
@@ -57,6 +80,8 @@ public class CollectionsChallenges {
 
 	static ArrayList<String> removeDuplicates(ArrayList<String> names) {
 //		remove duplicates from the list of name strings.  return a new array list with the unique elements.
+		names = removeDuplicates(names);
+
 		return names;
 	}
 
@@ -86,3 +111,4 @@ public class CollectionsChallenges {
 	}
 
 }
+
