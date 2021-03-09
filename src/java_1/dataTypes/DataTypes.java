@@ -1,5 +1,7 @@
 package java_1.dataTypes;
 
+import java.util.Arrays;
+
 class DataTypes {
 
 		int number = 2021;
@@ -18,13 +20,13 @@ class DataTypes {
 		//the class fields defined in this DataTypes class have mistakes with either the data type, or the syntax.  Fix the data types so the main method correctly displays the value of all of the variables
 		//For the methods below in this DataTypes class, determine the appropriate data types for the inputs and the outputs
 
-		//yearsToMonths(2);
-		//monthsToHours(30);
-		//yearsToMinutes(365);
-		//centuriesToSeconds(1);
-
-		//canDrive(21);
-		//canDrive(15);
+		yearsToMonths(2);
+		monthsToHours(30);
+		yearsToMinutes(365);
+		centuriesToSeconds(1);
+		dollarsToBitcoin(23.39);
+		canDrive(21);
+		canDrive(15);
 	}
 
 	public static void yearsToMonths(int years){
@@ -60,8 +62,11 @@ class DataTypes {
 		System.out.println("There " + century + " x 10^9 seconds in " + centuries + " centuries!");
 	}
 
-	public static void dollarsToBitcoin(double dollars) {
+	public static double dollarsToBitcoin(double dollars) {
 		//	convert (usd) dollars $ to bitcoin using appropriate data types for the inputs and the outputs, $35,000 dollars  3.1556952 x 10^9 Seconds
+		double bitCoin = dollars * 0.0000019;
+
+		return bitCoin;
 	}
 
 	public static void canDrive(int age) {
@@ -74,9 +79,16 @@ class DataTypes {
 		}
 	}
 
-	String[] getDataTypes(int num1, boolean bool1, long long1) {
+	public static String[] getDataTypes(int[] num1, boolean[] bool1, long[] long1) {
 //		get the data type of the three input variables; and return a string representation of the data types of the three variables as an array.
-		return new String[]{null,null,null};
+
+		num1 = new int[]{1, 2, 3};
+		bool1 = new boolean[]{true, false};
+		long1 = new long[]{11111, 22222, 33333};
+
+
+
+		return new String[]{Arrays.toString(num1), Arrays.toString(bool1), Arrays.toString(long1)};
 	}
 
 }
