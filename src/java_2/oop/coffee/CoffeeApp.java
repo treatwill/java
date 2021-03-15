@@ -11,9 +11,9 @@ public class CoffeeApp {
 	-
  */
 
-		CoffeeBeans java = new CoffeeBeans();
-		Cup mug = new Cup();
-		CoffeeMaker keureg = new CoffeeMaker();
+		CoffeeBeans java = new CoffeeBeans("black", "cuba", "gross");
+		Cup mug = new Cup(8.0, "large", "empty", "full");
+		CoffeeMaker keureg = new CoffeeMaker("stuff", "more stuff", true);
 //		keureg.powerOn();  (Defined in the Machine Interface)
 		mug = keureg.brew(java,mug);
 		mug.drink();
