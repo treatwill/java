@@ -1,7 +1,6 @@
 package java_2.oop.monkey;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -9,16 +8,19 @@ class MonkeyCage {
 
     private List<Monkey> monkeys;
 
-    boolean[] areMonkeysSmiling(Monkey[] monkeys) {
+    public MonkeyCage(List<Monkey> monList) {
+    }
+
+    List<Monkey> areMonkeysSmiling() {
     //We have an array of monkeys.  Each Monkey has a boolean smile property, which indicates if that particular monkey is smiling.  Determine whether or not the majority of monkeys are smiling.  If the majority are smiling, return true.  if the majority are not smiling, return false.  If it is a tie, return true.
-        boolean[] isSmiling = new boolean[monkeys.length];
 
-
-        for (int i = 0; i < monkeys.length; i++) {
-            isSmiling[i] = false;
+        int x = 0;
+        for (Monkey monkey : monkeys) {
+            if (monkey.smiling) {
+                x += 1;
+            }
         }
-        System.out.println(Arrays.toString(isSmiling));
-        return isSmiling;
+        return monkeys;
     }
 
     ArrayList<Monkey> addMonkey(Monkey monkey) {
@@ -37,7 +39,7 @@ class MonkeyCage {
         System.out.println(monkey);
     }
 
-    static class Monkey { //inner class.  DO NOT MOVE THIS CLASS
+     static class Monkey { //inner class.  DO NOT MOVE THIS CLASS
         String name;
         boolean smiling;
 
@@ -45,5 +47,6 @@ class MonkeyCage {
             this.name = name;
             this.smiling = smiling;
         }
+
     }
 }

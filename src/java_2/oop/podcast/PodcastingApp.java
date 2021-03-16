@@ -26,10 +26,10 @@ class PodcastingApp {
 
 
 
-    public static void play() {
+    public static void play(String title) {
 
         isPlaying = true;
-        System.out.println("Playing");
+        System.out.println("Playing " + title);
     }
 
     public static void stop() {
@@ -38,17 +38,17 @@ class PodcastingApp {
         System.out.println("Stopped");
     }
 
-    public void next(List<Podcast> playlist) {
+    public void next(Podcast podcast) {
 
-        LinkedList<Podcast> playNext = new LinkedList<Podcast>(playlist);
 
-        playNext.get(playlist.indexOf(""));
+
+        System.out.println("Playing next " + podcast);
+
 
     }
 
-    public static void previous(List<Podcast> playlist) {
-
-        currentPlay--;
+    public static void previous(Podcast podcast) {
+        System.out.println("Playing next " + podcast);
     }
 
     public static void repeat() {

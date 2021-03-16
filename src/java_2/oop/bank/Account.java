@@ -43,7 +43,7 @@ public class Account {
         return bank;
     }
 
-    public int getNumber() {
+    public int getNumber(int number) {
         return number;
     }
 

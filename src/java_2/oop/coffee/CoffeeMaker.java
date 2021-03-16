@@ -38,7 +38,7 @@ class CoffeeMaker extends Machine{
  	*/
 
 	Cup brew(CoffeeBeans coffee, Cup cup) {
-
+		System.out.println(coffee.getBeanName() + " for the " + cup.cupType + " Thank you come again");
 		/*
 			if the Coffee Maker is not powered on, do not brew any coffee.
 			check if the coffee has been roasted or not.  If the coffee bean hasn't been roasted, throw an exception or print an error message to the console, indicating the beans must be roasted before brewing.
@@ -51,4 +51,15 @@ class CoffeeMaker extends Machine{
 		return cup;
 	}
 
+	@Override
+	public String toString() {
+		return "CoffeeMaker{" +
+				"brand='" + brand + '\'' +
+				", type='" + type + '\'' +
+				", on=" + on +
+				", type='" + type + '\'' +
+				", brand='" + brand + '\'' +
+				", on=" + on +
+				'}';
+	}
 }

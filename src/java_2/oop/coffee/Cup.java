@@ -59,4 +59,14 @@ public class Cup {
 	public void drink() {
 
 	};
+
+	@Override
+	public String toString() {
+		return "Cup{" +
+				"capacity=" + capacity +
+				", cupType='" + cupType + '\'' +
+				", fluidContents='" + fluidContents + '\'' +
+				", fill='" + fill + '\'' +
+				'}';
+	}
 }

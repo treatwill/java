@@ -34,12 +34,17 @@ public class Bank {
         return account;
 }
 
-    public void getAccountByCustomer(Customer customer){
-        System.out.println(customer);
+    public Customer getAccountByCustomer(String getFirstName){
+
+        System.out.println(getFirstName);
+        return customer;
     }
 
-    public void getAccountByNumber(Account getNumber) {
+    public Account getAccountByNumber(int getNumber) {
+
         System.out.println(getNumber);
+
+        return null;
     }
 
     @Override

@@ -39,5 +39,26 @@ public class BankingApp {
 		firstBank.closeAccount(accFive);
 		firstBank.closeAccount(accFour);
 		System.out.println(firstBank);
+		System.out.println("Get customer by name" + firstBank.getAccountByCustomer("Jaleel"));
+		System.out.println("Get customer by account number" + firstBank.getAccountByNumber(4321));
+
+
+		System.out.println(accOne);
+		System.out.println(accOne.getBalance());
+		accOne.withdraw(200);
+		accOne.deposit(100);
+		System.out.println(accOne.getBalance());
+
+		System.out.println(accTwo);
+		System.out.println(accTwo.getBalance());
+		accTwo.withdraw(200);
+		accTwo.deposit(100);
+		System.out.println(accTwo.getBalance());
+
+		System.out.println(accThree);
+		System.out.println(accThree.getBalance());
+		accThree.withdraw(200);
+		accThree.deposit(100);
+		System.out.println(accThree.getBalance());
 	}
 }

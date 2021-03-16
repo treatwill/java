@@ -37,8 +37,13 @@ public class Main {
 		PodcastingApp appTwo = new PodcastingApp("RealPod", playlistTwo);
 		PodcastingApp appThree = new PodcastingApp("RealPod", playlistThree);
 
-		appThree.play();
+		PodcastingApp.play("Sports");
+		appThree.next(podNine);
+		PodcastingApp.previous(podThree);
+		PodcastingApp.stop();
 		appThree.loadPlaylist(playlistOne);
+		System.out.println(appThree);
+		appThree.removeFromPlaylist(podEight);
 	}
 
 }
