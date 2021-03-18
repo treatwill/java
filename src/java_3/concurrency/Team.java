@@ -1,12 +1,21 @@
 package java_3.concurrency;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
-class Team {
+class Team implements Runnable{
 
     private String teamName;
     private List<String> team = new ArrayList<>();
+
+    public Team(String teamName) {
+        this.teamName = teamName;
+    }
+
+    public String getTeamName() {
+        return teamName;
+    }
 
     /*
         -This thread should be created by implementing the Runnable interface, NOT by extending the Thread class.
@@ -18,6 +27,27 @@ class Team {
         Set the name of the thead to be your agile team name.
      */
 
+    @Override
+    public void run() {
+        Thread.currentThread().setName(this.teamName);
+        List<String> teammates = new ArrayList<>(Arrays.asList("Jaleel", "Treat", "Williams"));
+         for (String teammate : teammates) {
+             team.add(teammate);
+             try {
+                 Thread.sleep(1000);
+             } catch (InterruptedException e) {
+                 e.printStackTrace();
+             }
+         }
+        System.out.println(Thread.currentThread().getName() + " " + team);
+    }
 
 
+    @Override
+    public String toString() {
+        return "Team{" +
+                "teamName='" + teamName + '\'' +
+                ", team=" + team +
+                '}';
+    }
 }
