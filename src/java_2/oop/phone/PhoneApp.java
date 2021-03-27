@@ -1,5 +1,9 @@
 package java_2.oop.phone;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class PhoneApp {
 
 	public static void main(String[] args) {
@@ -15,6 +19,35 @@ public class PhoneApp {
 		-Search for a contact by name in one of the cell phones.
 		-Make the CellPhone class implement the Phoneable interface.  Implement the methods how you see fit in the CellPhone Class
 */
+
+		Contact conOne = new Contact("Bo", 555555555, "Dallas, TX");
+		Contact conTwo = new Contact("Jo", 444444444, "Dallas, TX");
+		Contact conThree = new Contact("Po", 333333333, "Dallas, TX");
+		List<Contact> conListOne = new ArrayList<>(Arrays.asList(conOne, conTwo, conThree));
+		CellPhone myCell = new CellPhone(conListOne, 200.00, "Verizon", "Samsung", true);
+
+
+		Contact conFour = new Contact("Ro", 888888888, "Dallas, TX");
+		Contact conFive = new Contact("Yo", 777777777, "Dallas, TX");
+		Contact conSix = new Contact("Lo", 222222222, "Dallas, TX");
+		List<Contact> conListTwo = new ArrayList<>(Arrays.asList(conFour, conFive, conSix));
+		CellPhone myCellOne = new CellPhone(conListTwo, 300.00, "ATT", "Iphone", true);
+
+
+		Contact conSeven = new Contact("Ace", 111111111, "Dallas, TX");
+		Contact conEight = new Contact("Tim", 666666666, "Dallas, TX");
+		Contact conNine = new Contact("Polly", 999999999, "Dallas, TX");
+		List<Contact> conListThree = new ArrayList<>(Arrays.asList(conSeven, conEight, conNine));
+		CellPhone myCellThree = new CellPhone(conListThree, 200.00, "Verizon", "LG", false);
+
+
+
+		myCell.call(conEight);
+		myCellThree.pickUp();
+		myCell.hangUp();
+		conListThree.remove(conNine);
+		conListTwo.add(conOne);
+		System.out.println(conListThree);
 
 	}
 }

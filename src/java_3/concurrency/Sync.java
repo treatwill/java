@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 class Sync extends Thread {
-    private List nums = new ArrayList<>();
+     List nums = new ArrayList<>();
 
     Sync(String name) {
         super(name);

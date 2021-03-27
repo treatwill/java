@@ -1,8 +1,11 @@
-package java_3.regex;
+package java_4.Regex;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 class Regex {
 
@@ -13,7 +16,7 @@ class Regex {
 
     static void explainPattern() {
         // What does the following pattern match? (\d){36} explain in a println() statement.
-        System.out.println("The following pattern ('\\d'){35} matches : ...");
+        System.out.println("The following pattern ('\\d'){35} matches : any digit 35 times.");
     }
 
     static int countWords(String str) {
@@ -22,50 +25,80 @@ class Regex {
 			wordCount(" this     is my     spaced out       sentence ") => 6
 			wordCount(" ") =>  0.
 			*/
-        return 0;
+        String word = "\\w+";
+        Pattern wordCountPattern = Pattern.compile(word);
+        Matcher wordCountMatcher = wordCountPattern.matcher(str);
+        int count = 0;
+        while (wordCountMatcher.find()) {
+            count++;
+        }
+        return count;
     }
 
     static int countBooks() {
-        // Find all the occurences of any form of 'book' in the bookText class variable. use java_3.regex to match the occurences and store the count of books to an int.
+        // Find all the occurences of any form of 'book' in the bookText class variable. use java_4.regex to match the occurences and store the count of books to an int.
+
+        String book = "((?i)books*)";
+        Pattern bookPattern = Pattern.compile(book);
+        Matcher bookMatcher = bookPattern.matcher(bookText);
         int bookCount = 0;
+        while (bookMatcher.find()) {
+            bookCount++;
+        }
         return bookCount;
     }
 
-    static String[] tmFirstNameBasis() {
+    static ArrayList<String> tmFirstNameBasis() {
         // Create a new array of the first names of the TEKmentors array defined as a class property.  Use Regex to only grab the first name of every TEKmentor in the TEKmentors set defined in this class.  Return an Array of first names.
-        String[] firstNamesTMs = {};
+        String firstName = "(^\\w+)";
+        ArrayList<String> firstNamesTMs = new ArrayList<>();
+        for (String tm : TEKmentors) {
+            Pattern firstNamePattern = Pattern.compile(firstName);
+            Matcher firstnameMatcher = firstNamePattern.matcher(tm);
+            while (firstnameMatcher.find()) {
+                firstNamesTMs.add(firstnameMatcher.group(1));
+            }
+        }
         return firstNamesTMs;
     }
 
     static String beHappyNotSleepy() {
-        /* for the static variable sleepy, replace every occurence of sleepy with the word 'happy'. Account for case.  Use java_3.regex to complete the task.
+        /* for the static variable sleepy, replace every occurence of sleepy with the word 'happy'. Account for case.  Use java_4.regex to complete the task.
                 SLEEPY => happy
                 sleep => sleep
                 sleepy => happy
                 123sleepy => happy
          */
 
-        String happy = sleepy;
+        String happy = sleepy.replaceAll("(?i)[a-z0-9]*sleepy", "happy");
         return happy;
     }
 
     static int findPhoneNumbers(String str) {
-    // determine if the input string is a valid phone number.  If not, return 0.
-//        examples : (123)-234-3456, 123456789, 123 342 2222, (123)345-3333
+        // determine if the input string is a valid phone number.  If not, return 0.
+        //   examples : (123)-234-3456, 123456789, 123 342 2222, (123)345-3333
         return 0;
     }
 
 
     static void printArrows() {
         for(String arr : arrows) {
-            System.out.println(arr);
+            if (arr.matches("[\u2190-\u21FF]")){
+                System.out.println(arr);
+            }
         }
 
         //You are looking for unicode arrow symbols in a string.  https://jrgraphix.net/r/Unicode/2190-21FF is a selection of unicode arrow symbols Match all the codes that are arrows in the arrows class field defined above, and then print them out to the console.  They should be printing out as the arrow images.
     }
 
     public static void main(String[] args) {
+        explainPattern();
         printArrows();
+        System.out.println(countWords("Count this amount of words"));
+        System.out.println(countBooks());
+        System.out.println(beHappyNotSleepy());
+       // System.out.println(findPhoneNumbers("555-555-5555"));
+        System.out.println(tmFirstNameBasis());
+
     }
 }
-

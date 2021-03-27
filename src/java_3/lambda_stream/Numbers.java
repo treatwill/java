@@ -2,6 +2,8 @@ package java_3.lambda_stream;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.IntPredicate;
+import java.util.function.Predicate;
 
 class Numbers {
 
@@ -18,14 +20,15 @@ class Numbers {
 
     static boolean isOdd(int i) {
         //determine if the value at the index i is odd.  return true if yes, return false if  no.
-        return false;
+        return (getNum(i) % 2 == 1);
     }
-
+    static Predicate<Integer> isOdd = (i) -> (getNum(i) % 2 == 1);
 
     static boolean isEven(int i) {
         //determine if the value at the index i is even.  return true if yes, return false if  no.
-        return false;
+        return (getNum(i) % 2 == 0);
     }
+    static Predicate<Integer> isEven = (i) -> (getNum(i) % 2 == 1);
 
     static boolean isPrime(int i) {
          //determine if the value at the index i is a prime number.  return true if yes, return false if no.

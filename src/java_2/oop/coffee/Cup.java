@@ -2,6 +2,10 @@ package java_2.oop.coffee;
 
 public class Cup {
 
+	double capacity;
+	String cupType;
+	String fluidContents;
+	String fill;
 /*
 	Properties :
 		-capacity (oz)
@@ -13,5 +17,56 @@ public class Cup {
 		-drink(oz) - lowers the fill of the cup by how much is 'drunk'. Display a message indicating the type of coffee being consumed.
  */
 
-	public void drink() {};
+	public Cup(double capacity, String cupType, String fluidContents, String fill) {
+		this.capacity = capacity;
+		this.cupType = cupType;
+		this.fluidContents = fluidContents;
+		this.fill = fill;
+	}
+
+	public double getCapacity() {
+		return capacity;
+	}
+
+	public void setCapacity(double capacity) {
+		this.capacity = capacity;
+	}
+
+	public String getCupType() {
+		return cupType;
+	}
+
+	public void setCupType(String cupType) {
+		this.cupType = cupType;
+	}
+
+	public String getFluidContents() {
+		return fluidContents;
+	}
+
+	public void setFluidContents(String fluidContents) {
+		this.fluidContents = fluidContents;
+	}
+
+	public String getFill() {
+		return fill;
+	}
+
+	public void setFill(String fill) {
+		this.fill = fill;
+	}
+
+	public void drink() {
+
+	};
+
+	@Override
+	public String toString() {
+		return "Cup{" +
+				"capacity=" + capacity +
+				", cupType='" + cupType + '\'' +
+				", fluidContents='" + fluidContents + '\'' +
+				", fill='" + fill + '\'' +
+				'}';
+	}
 }
